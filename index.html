@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Profit Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Profit Calculator</h1>
+        <form class="row ">
+            <div class="col-sm-9 mx-auto form-group">
+                <label for="buyPrice" class="col-sm-3 col-form-label">Buy Price (USD):</label>
+                <input type="number" class="form-control" id="buyPrice" name="buyPrice">
+            </div>
+
+            <div class="col-sm-9 mx-auto form-group">
+                <label for="sellPrice" class="col-sm-3 col-form-label">Sell Price (USD):</label>
+                <input type="number" class="form-control" id="sellPrice" name="sellPrice">
+            </div>
+
+            <div class="col-sm-9 mx-auto form-group">
+                <label for="buyAmount" class="col-sm-3 col-form-label">Buy Amount (USD):</label>
+                <input type="number" class="form-control" id="buyAmount" name="buyAmount">
+            </div>
+            <div class="col-sm-9 mx-auto form-group">
+                <div class="">
+                    <input type="button" class="btn btn-lg btn-block btn-primary" value="Calculate Profit" onclick="calculateProfit()">
+                </div>
+            </div>
+
+            <div class="col-sm-9 mx-auto form-group">
+                <label for="profit" class="col-sm-3 col-form-label">Profit (USD):</label>
+                <input type="number" class="form-control" id="profit" name="profit" readonly>
+                <p id="percentageProfit"></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function calculateProfit() {
+            var buyPrice = parseFloat(document.getElementById("buyPrice").value);
+            var sellPrice = parseFloat(document.getElementById("sellPrice").value);
+            var buyAmount = parseFloat(document.getElementById("buyAmount").value);
+
+            var percentageIncrease = ((sellPrice - buyPrice) / buyPrice) * 100;
+            var profit = (buyAmount * (1 + (percentageIncrease / 100))).toFixed(2);
+
+            document.getElementById("profit").value = profit;
+            document.getElementById("percentageProfit").innerText = percentageIncrease + "%";
+        }
+    </script>
+</body>
+
+</html>
