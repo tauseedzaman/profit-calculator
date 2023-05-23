@@ -31,9 +31,9 @@
             </div>
 
             <div class="col-sm-9 mx-auto form-group">
-                <label for="profit" class="col-sm-3 col-form-label">Profit (USD):</label>
-                <input type="number" class="form-control" id="profit" name="profit" readonly>
                 <p id="percentageProfit"></p>
+                <p id="pnl"></p>
+                <p id="total"></p>
             </div>
         </form>
     </div>
@@ -46,9 +46,12 @@
 
             var percentageIncrease = ((sellPrice - buyPrice) / buyPrice) * 100;
             var profit = (buyAmount * (1 + (percentageIncrease / 100))).toFixed(2);
+            var pnl = profit-buyAmount;
 
-            document.getElementById("profit").value = profit;
-            document.getElementById("percentageProfit").innerText = percentageIncrease + "%";
+
+            document.getElementById("percentageProfit").innerText ='Profit: '+ percentageIncrease+"%";
+            document.getElementById("pnl").innerText = 'PNL: $'+pnl;
+            document.getElementById("total").innerText = 'Total amount in return: $'+profit;
         }
     </script>
 </body>
