@@ -1,3 +1,3 @@
 ﻿# profit-calculator
 live here
-https://profit-calculator.tauseedzaman.com/
+[here](https://htmlpreview.github.io/?https://github.com/tauseedzaman/profit-calculator/blob/main/index.html)
